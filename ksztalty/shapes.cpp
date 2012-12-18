@@ -1,14 +1,26 @@
 #include "shapes.h"
 #include "ui_shapes.h"
 
+#include <GL/glu.h>
+
 Shapes::Shapes(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::Shapes)
+    QGLWidget(parent)
 {
-    ui->setupUi(this);
 }
 
 Shapes::~Shapes()
 {
-    delete ui;
 }
+
+void Shapes::initializeGL()
+{
+}
+
+void Shapes::resizeGL(int w, int h)
+{
+}
+
+void Shapes::paintGL()
+{
+}
+

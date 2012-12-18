@@ -1,22 +1,21 @@
 #ifndef SHAPES_H
 #define SHAPES_H
 
-#include <QWidget>
+#include <QtOpenGL>
 
-namespace Ui {
-class Shapes;
-}
-
-class Shapes : public QWidget
+class Shapes : public QGLWidget
 {
     Q_OBJECT
     
 public:
     explicit Shapes(QWidget *parent = 0);
     ~Shapes();
+
+protected:
+    void initializeGL();
+    void resizeGL(int w, int h);
+    void paintGL();
     
-private:
-    Ui::Shapes *ui;
 };
 
 #endif // SHAPES_H

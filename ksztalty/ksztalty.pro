@@ -11,10 +11,11 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = ksztalty
 TEMPLATE = app
 
+LIBS += -lGLU
 
 SOURCES += main.cpp\
         shapes.cpp
 
 HEADERS  += shapes.h
 
-FORMS    += shapes.ui
+FORMS    +=
