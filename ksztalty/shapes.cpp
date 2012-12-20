@@ -57,6 +57,20 @@ void Shapes::paintGL()
     glVertex3f(1.5f, -0.5f, -5.0f);
     glEnd();
 
+    glBegin(GL_LINES);
+    glVertex3f(0.0f, 0.0f, -5.0f);
+    glVertex3f(2.0f, 0.0f, -5.0f);
+
+    glVertex3f(0.0f, 0.0f, -5.0f);
+    glVertex3f(0.0f, 2.0f, -5.0f);
+
+    glVertex3f(0.0f, 0.0f, -5.0f);
+    glVertex3f(-2.0f, 0.0f, -5.0f);
+
+    glVertex3f(0.0f, 0.0f, -5.0f);
+    glVertex3f(0.0f, -2.0f, -5.0f);
+    glEnd();
+
     swapBuffers();
 }
 
