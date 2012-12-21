@@ -36,39 +36,41 @@ void Shapes::paintGL()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
+    glTranslatef(0.0f, 0.0f, -5.0f);
+
     glBegin(GL_QUADS);
-    glVertex3f(-0.2f, -1.5f, -5.0f);
-    glVertex3f(0.2f, -1.5f, -5.0f);
-    glVertex3f(0.2f, -0.5f, -5.0f);
-    glVertex3f(-0.2f, -0.5f, -5.0f);
+    glVertex3f(-0.2f, -1.5f, 0.0f);
+    glVertex3f(0.2f, -1.5f, 0.0f);
+    glVertex3f(0.2f, -0.5f, 0.0f);
+    glVertex3f(-0.2f, -0.5f, 0.0f);
     glEnd();
 
     glBegin(GL_TRIANGLES);
-    glVertex3f(0.5f, 0.5f, -5.0f);
-    glVertex3f(1.5f, 0.5f, -5.0f);
-    glVertex3f(0.5f, 1.0f, -5.0f);
+    glVertex3f(0.5f, 0.5f, 0.0f);
+    glVertex3f(1.5f, 0.5f, 0.0f);
+    glVertex3f(0.5f, 1.0f, 0.0f);
 
-    glVertex3f(0.5f, 1.0f, -5.0f);
-    glVertex3f(1.5f, 1.0f, -5.0f);
-    glVertex3f(1.0f, 1.5f, -5.0f);
+    glVertex3f(0.5f, 1.0f, 0.0f);
+    glVertex3f(1.5f, 1.0f, 0.0f);
+    glVertex3f(1.0f, 1.5f, 0.0f);
 
-    glVertex3f(0.5f, -0.5f, -5.0f);
-    glVertex3f(1.0f, -1.5f, -5.0f);
-    glVertex3f(1.5f, -0.5f, -5.0f);
+    glVertex3f(0.5f, -0.5f, 0.0f);
+    glVertex3f(1.0f, -1.5f, 0.0f);
+    glVertex3f(1.5f, -0.5f, 0.0f);
     glEnd();
 
     glBegin(GL_LINES);
-    glVertex3f(0.0f, 0.0f, -5.0f);
-    glVertex3f(2.0f, 0.0f, -5.0f);
+    glVertex3f(0.0f, 0.0f, 0.0f);
+    glVertex3f(2.0f, 0.0f, 0.0f);
 
-    glVertex3f(0.0f, 0.0f, -5.0f);
-    glVertex3f(0.0f, 2.0f, -5.0f);
+    glVertex3f(0.0f, 0.0f, 0.0f);
+    glVertex3f(0.0f, 2.0f, 0.0f);
 
-    glVertex3f(0.0f, 0.0f, -5.0f);
-    glVertex3f(-2.0f, 0.0f, -5.0f);
+    glVertex3f(0.0f, 0.0f, 0.0f);
+    glVertex3f(-2.0f, 0.0f, 0.0f);
 
-    glVertex3f(0.0f, 0.0f, -5.0f);
-    glVertex3f(0.0f, -2.0f, -5.0f);
+    glVertex3f(0.0f, 0.0f, 0.0f);
+    glVertex3f(0.0f, -2.0f, 0.0f);
     glEnd();
 
     swapBuffers();
