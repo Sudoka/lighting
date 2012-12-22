@@ -6,7 +6,13 @@
 class Shapes : public QGLWidget
 {
     Q_OBJECT
+    QTimer _rotate_timer;
+    float _angle;
+    float _camera_angle;
     
+private slots:
+    void rotate();
+
 public:
     explicit Shapes(QWidget *parent = 0);
     ~Shapes();
