@@ -40,6 +40,7 @@ void Shapes::paintGL()
 
     glPushMatrix();
     glTranslatef(0.0f, -1.0f, 0.0f);
+    glRotatef(30.0f, 0.0f, 0.0f, 1.0f);
 
     glBegin(GL_QUADS);
     glVertex3f(-0.2f, -0.5f, 0.0f);
@@ -51,6 +52,8 @@ void Shapes::paintGL()
     glPopMatrix();
     glPushMatrix();
     glTranslatef(1.0f, 1.0f, 0.0f);
+    glRotatef(30.0f, 0.0f, 1.0f, 0.0f);
+    glScalef(0.9f, 0.9f, 0.9f);
 
     glBegin(GL_TRIANGLES);
     glVertex3f(-0.5f, -0.5f, 0.0f);
