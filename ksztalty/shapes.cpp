@@ -6,7 +6,13 @@
 Shapes::Shapes(QWidget *parent) :
     QGLWidget(parent),
     _angle(0.0f),
-    _camera_angle(0.0f)
+    _camera_angle(0.0f),
+    _red(0.3f),
+    _green(0.6f),
+    _blue(1.0f),
+    _red_inc(0.01f),
+    _green_inc(0.005f),
+    _blue_inc(0.002f)
 {
     connect(&_rotate_timer, SIGNAL(timeout()), this, SLOT(rotate()));
     _rotate_timer.start(30);
@@ -20,7 +26,7 @@ void Shapes::initializeGL()
 {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_COLOR_MATERIAL);
-    glClearColor(0.3f, 0.1f, 0.3f, 1.0f);
+    glClearColor(0.8f, 0.6f, 1.0f, 1.0f);
 }
 
 void Shapes::resizeGL(int w, int h)
@@ -49,13 +55,13 @@ void Shapes::paintGL()
     glRotatef(_angle * 2.0, 0.0f, 0.0f, 1.0f);
 
     glBegin(GL_QUADS);
-    glColor3f(0.2f, 0.1f, 0.8f);
+    glColor3f(_red, _green, _blue);
     glVertex3f(-0.2f, -0.5f, 0.0f);
-    glColor3f(0.0f, 0.8f, 0.1f);
+    glColor3f(_green, _blue, _red);
     glVertex3f(0.2f, -0.5f, 0.0f);
-    glColor3f(0.8f, 0.0f, 0.3f);
+    glColor3f(_blue, _red, _green);
     glVertex3f(0.2f, 0.5f, 0.0f);
-    glColor3f(0.0f, 0.85f, 0.65f);
+    glColor3f(_green, _red, _blue);
     glVertex3f(-0.2f, 0.5f, 0.0f);
     glEnd();
 
@@ -123,6 +129,22 @@ void Shapes::rotate()
     _camera_angle += 1.0f;
     if (_camera_angle > 360) {
         _camera_angle -= 360;
+    }
+
+    _red += _red_inc;
+    _green += _green_inc;
+    _blue += _blue_inc;
+
+    if (_red > 1 || _red < 0) {
+        _red_inc *= -1;
+    }
+
+    if (_green > 1 || _green < 0) {
+        _green_inc *= -1;
+    }
+
+    if (_blue > 1 || _blue < 0) {
+        _blue_inc *= -1;
     }
 
     updateGL();

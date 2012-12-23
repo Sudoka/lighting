@@ -22,6 +22,9 @@ private:
     QTimer _rotate_timer;
     float _angle;
     float _camera_angle;
+
+    float _red, _green, _blue;
+    float _red_inc, _green_inc, _blue_inc;
     
 };
 
