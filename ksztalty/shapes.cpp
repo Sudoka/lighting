@@ -47,11 +47,14 @@ void Shapes::paintGL()
     glTranslatef(0.0f, -1.0f, 0.0f);
     glRotatef(_angle * 2.0, 0.0f, 0.0f, 1.0f);
 
-    glColor3f(0.5f, 0.0f, 0.8f);
     glBegin(GL_QUADS);
+    glColor3f(0.2f, 0.1f, 0.8f);
     glVertex3f(-0.2f, -0.5f, 0.0f);
+    glColor3f(0.0f, 0.8f, 0.1f);
     glVertex3f(0.2f, -0.5f, 0.0f);
+    glColor3f(0.8f, 0.0f, 0.3f);
     glVertex3f(0.2f, 0.5f, 0.0f);
+    glColor3f(0.0f, 0.85f, 0.65f);
     glVertex3f(-0.2f, 0.5f, 0.0f);
     glEnd();
 
@@ -64,11 +67,16 @@ void Shapes::paintGL()
     glBegin(GL_TRIANGLES);
     glColor3f(0.0f, 0.75f, 0.0f);
     glVertex3f(-0.5f, -0.5f, 0.0f);
+    glColor3f(0.2f, 0.1f, 0.8f);
     glVertex3f(0.5f, -0.5f, 0.0f);
+    glColor3f(0.2f, 0.0f, 0.3f);
     glVertex3f(-0.5f, 0.0f, 0.0f);
 
+    glColor3f(0.1f, 0.5f, 0.3f);
     glVertex3f(-0.5f, 0.0f, 0.0f);
+    glColor3f(0.5f, 0.1f, 0.3f);
     glVertex3f(0.5f, 0.0f, 0.0f);
+    glColor3f(0.8f, 0.0f, 0.3f);
     glVertex3f(0.0f, 0.5f, 0.0f);
     glEnd();
 
@@ -79,6 +87,7 @@ void Shapes::paintGL()
 
     glBegin(GL_TRIANGLES);
     glVertex3f(0.5f, 0.5f, 0.0f);
+    glColor3f(0.2f, 0.1f, 0.8f);
     glVertex3f(0.0f, -0.5f, 0.0f);
     glVertex3f(-0.5f, 0.5f, 0.0f);
     glEnd();
