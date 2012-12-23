@@ -5,11 +5,11 @@
 
 Shapes::Shapes(QWidget *parent) :
     QGLWidget(parent),
-    _angle(10.0f),
-    _camera_angle(5.0f)
+    _angle(0.0f),
+    _camera_angle(0.0f)
 {
     connect(&_rotate_timer, SIGNAL(timeout()), this, SLOT(rotate()));
-    _rotate_timer.start(25);
+    _rotate_timer.start(30);
 }
 
 Shapes::~Shapes()
@@ -19,6 +19,7 @@ Shapes::~Shapes()
 void Shapes::initializeGL()
 {
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_COLOR_MATERIAL);
 }
 
 void Shapes::resizeGL(int w, int h)
@@ -46,6 +47,7 @@ void Shapes::paintGL()
     glTranslatef(0.0f, -1.0f, 0.0f);
     glRotatef(_angle * 2.0, 0.0f, 0.0f, 1.0f);
 
+    glColor3f(0.5f, 0.0f, 0.8f);
     glBegin(GL_QUADS);
     glVertex3f(-0.2f, -0.5f, 0.0f);
     glVertex3f(0.2f, -0.5f, 0.0f);
@@ -60,6 +62,7 @@ void Shapes::paintGL()
     glScalef(0.9f, 0.9f, 0.9f);
 
     glBegin(GL_TRIANGLES);
+    glColor3f(0.0f, 0.75f, 0.0f);
     glVertex3f(-0.5f, -0.5f, 0.0f);
     glVertex3f(0.5f, -0.5f, 0.0f);
     glVertex3f(-0.5f, 0.0f, 0.0f);
@@ -83,6 +86,7 @@ void Shapes::paintGL()
     glPopMatrix();
 
     glBegin(GL_LINES);
+    glColor3f(1.0f, 1.0f, 1.0f);
     glVertex3f(0.0f, 0.0f, 0.0f);
     glVertex3f(2.0f, 0.0f, 0.0f);
 
@@ -98,8 +102,6 @@ void Shapes::paintGL()
 
     swapBuffers();
 }
-
-
 
 void Shapes::rotate()
 {
