@@ -20,6 +20,7 @@ void Shapes::initializeGL()
 {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_COLOR_MATERIAL);
+    glClearColor(0.3f, 0.1f, 0.3f, 1.0f);
 }
 
 void Shapes::resizeGL(int w, int h)
