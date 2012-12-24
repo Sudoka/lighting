@@ -1,4 +1,5 @@
 #include "lighting.h"
+#include <GL/glu.h>
 
 Lighting::Lighting(QGLWidget *parent)
     : QGLWidget(parent),
