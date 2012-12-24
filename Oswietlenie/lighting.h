@@ -2,6 +2,7 @@
 #define LIGHTING_H
 
 #include <QGLWidget>
+#include <QTimer>
 
 class Lighting : public QGLWidget
 {
@@ -15,6 +16,9 @@ protected:
     void initializeGL();
     void resizeGL(int w, int h);
     void paintGL();
+private:
+    QTimer _rotate_timer;
+    float _camera_angle;
 };
 
 #endif // LIGHTING_H
