@@ -22,6 +22,8 @@ void Lighting::initializeGL()
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
     glEnable(GL_LIGHT1);
+
+    glShadeModel(GL_SMOOTH);
 }
 
 void Lighting::resizeGL(int w, int h)
@@ -62,28 +64,40 @@ void Lighting::paintGL()
     glColor3f(1.0f, 1.0f, 1.0f);
     glBegin(GL_QUADS);
 
-    glNormal3f(0.0f, 0.0f, 1.0f);
+    glNormal3f(-1.0f, 0.0f, 1.0f);
     glVertex3f(-1.5f, -1.0f, 1.5f);
+    glNormal3f(1.0f, 0.0f, 1.0f);
     glVertex3f(1.5f, -1.0f, 1.5f);
+    glNormal3f(1.0f, 0.0f, 1.0f);
     glVertex3f(1.5f, 1.0f, 1.5f);
+    glNormal3f(-1.0f, 0.0f, 1.0f);
     glVertex3f(-1.5f, 1.0f, 1.5f);
 
-    glNormal3f(1.0f, 0.0f, 0.0f);
+    glNormal3f(1.0f, 0.0f, -1.0f);
     glVertex3f(1.5f, -1.0f, -1.5f);
+    glNormal3f(1.0f, 0.0f, -1.0f);
     glVertex3f(1.5f, 1.0f, -1.5f);
+    glNormal3f(1.0f, 0.0f, 1.0f);
     glVertex3f(1.5f, 1.0f, 1.5f);
+    glNormal3f(1.0f, 0.0f, 1.0f);
     glVertex3f(1.5f, -1.0f, 1.5f);
 
-    glNormal3f(0.0f, 0.0f, -1.0f);
+    glNormal3f(-1.0f, 0.0f, -1.0f);
     glVertex3f(-1.5f, -1.0f, -1.5f);
+    glNormal3f(-1.0f, 0.0f, -1.0f);
     glVertex3f(-1.5f, 1.0f, -1.5f);
+    glNormal3f(1.0f, 0.0f, -1.0f);
     glVertex3f(1.5f, 1.0f, -1.5f);
+    glNormal3f(1.0f, 0.0f, -1.0f);
     glVertex3f(1.5f, -1.0f, -1.5f);
 
-    glNormal3f(-1.0f, 0.0f, 0.0f);
+    glNormal3f(-1.0f, 0.0f, -1.0f);
     glVertex3f(-1.5f, -1.0f, -1.5f);
+    glNormal3f(-1.0f, 0.0f, 1.0f);
     glVertex3f(-1.5f, -1.0f, 1.5f);
+    glNormal3f(-1.0f, 0.0f, 1.0f);
     glVertex3f(-1.5f, 1.0f, 1.5f);
+    glNormal3f(-1.0f, 0.0f, -1.0f);
     glVertex3f(-1.5f, 1.0f, -1.5f);
 
     glEnd();
