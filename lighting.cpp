@@ -1,10 +1,13 @@
 #include "lighting.h"
 #include <GL/glu.h>
+#include <QKeyEvent>
 
 Lighting::Lighting(QGLWidget *parent)
     : QGLWidget(parent),
     _camera_angle(0.0f),
-    _angle(0.0f)
+    _angle(0.0f),
+    _light_position(0.0f),
+    _light_inc(0.01f)
 {
     connect(&_rotate_timer, SIGNAL(timeout()), this, SLOT(rotate()));
     _rotate_timer.start(30);
@@ -17,11 +20,13 @@ Lighting::~Lighting()
 
 void Lighting::initializeGL()
 {
+    _ligting = true;
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_COLOR_MATERIAL);
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
     glEnable(GL_LIGHT1);
+    glEnable(GL_LIGHT2);
 
     glShadeModel(GL_SMOOTH);
 }
@@ -58,6 +63,11 @@ void Lighting::paintGL()
     GLfloat lightPosition1[] = {-1.0f, 0.5f, 0.5f, 0.0f};
     glLightfv(GL_LIGHT1, GL_DIFFUSE, lightColor1);
     glLightfv(GL_LIGHT1, GL_POSITION, lightPosition1);
+
+    GLfloat lightColor2[] = {0.0f, 1.0f, 0.0f, 1.0f};
+    GLfloat lightPosition2[] = {_light_position, 0.5f, 0.5f, 0.0f};
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, lightColor2);
+    glLightfv(GL_LIGHT2, GL_POSITION, lightPosition2);
 
     glTranslatef(0.0f, 0.0f, -8.0f);
     glRotatef(_angle, 1.0f, 1.0f, 0.0f);
@@ -105,6 +115,23 @@ void Lighting::paintGL()
     swapBuffers();
 }
 
+void Lighting::keyPressEvent(QKeyEvent *event)
+{
+    switch (event->key()) {
+    case Qt::Key_L:
+        if (_ligting) {
+            glDisable(GL_LIGHT0);
+            glDisable(GL_LIGHT1);
+            _ligting = false;
+        } else {
+            glEnable(GL_LIGHT0);
+            glEnable(GL_LIGHT1);
+            _ligting = true;
+        }
+        break;
+    }
+}
+
 void Lighting::rotate()
 {
     _camera_angle += 1.0f;
@@ -114,6 +141,11 @@ void Lighting::rotate()
     _angle += 1.0f;
     if (_angle > 360) {
         _angle -= 360;
+    }
+
+    _light_position += _light_inc;
+    if (_light_position > 6 || _light_position < -6) {
+        _light_inc = -_light_inc;
     }
     updateGL();
 }
